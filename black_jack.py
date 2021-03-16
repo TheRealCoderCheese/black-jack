@@ -44,6 +44,7 @@ def check_if_game_end():
     elif computer_score == 21 and score <21:
         print("the computer won")
 main()
+#hello
 
 
 

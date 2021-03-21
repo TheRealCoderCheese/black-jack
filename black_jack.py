@@ -41,5 +41,4 @@ p = player
 
 p.main("turn")
 
-#die
 

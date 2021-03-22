@@ -2,17 +2,18 @@ import random
 
 listOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-username = input("enter you username: ")
 
 score = 0
 
 computer_score = 0
 
+username = input("enter in your username: ")
 
 class Player:
-    def __init__(self, score,computer_score, listOfNumbers):
+    def __init__(self, score,computer_score, username):
         self.score = score
         self.computer_score = computer_score
+        self.username = username
 
     def main(self):
         self.score += random.choice(listOfNumbers)
@@ -32,9 +33,9 @@ class Player:
 
     def check_if_game_end(self):
         if self.score == 21 and computer_score < 21:
-            print(f"{username} wins")
+            print(f"{self.username} wins")
         elif self.score == 21 and self.computer_score > 21:
-            print(f"{username} wins")
+            print(f"{self.username} wins")
         elif self.score > 21:
             print("the computer won")
         elif self.computer_score == 21 and self.score < 21:
@@ -49,7 +50,7 @@ class Player:
 
 
 
-p = Player(score, computer_score, listOfNumbers)
+p = Player(score, computer_score, username)
 
 p.main()
 

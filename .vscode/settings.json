@@ -1,3 +1,7 @@
 {
+    "python.linting.enabled": true,
+    "bracketPairColorizer.forceIterationColorCycle" : true,
+    "bracketPairColorizer.showHorizontalScopeLine": true,
+    "bracketPairColorizer.highlightActiveScope": true,
     "python.formatting.provider": "black"
 }

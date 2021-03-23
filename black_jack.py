@@ -11,13 +11,16 @@ username = input("enter in your username: ")
 
 turn = 0
 
+computer_move = 0
+
 
 class Player:
-    def __init__(self, score, computer_score, username, turns):
+    def __init__(self, score, computer_score, username, turns, computer_move):
         self.score = score
         self.computer_score = computer_score
         self.username = username
         self.turns = turns
+        self.computer_move = computer_move
 
     def main(self):
         self.score += random.choice(listOfNumbers)
@@ -40,30 +43,44 @@ class Player:
     def computer_turn(self):
         if self.score == 20 and self.computer_score < 15:
             self.computer_score += random.choice(listOfNumbers)
+            self.computer_move += 1
         elif self.computer_score == 20:
             self.computer_score += 0
+            self.computer_move += 1
         elif self.computer_score < 15 and score > 15:
             self.computer_score += random.choice(listOfNumbers)
+            self.computer_move += 1
 
     def check_if_game_end(self):
         if self.score == 21 and computer_score < 21:
             print(f"{self.username} wins")
+            return "game-over"
         elif self.score == 21 and self.computer_score > 21:
             print(f"{self.username} wins")
+            return "game over"
         elif self.score > 21:
             print("the computer won")
+            return "game-over"
         elif self.computer_score == 21 and self.score < 21:
             print("the computer won")
+            return "game-over"
         elif self.turns == 5:
             print(f"{self.username} wins")
+            return "game-over"
+        elif self.computer_move == 5:
+            print("the computer won")
+            return "game-over"
 
 
-p = Player(score, computer_score, username, turn)
+p = Player(score, computer_score, username, turn, computer_move)
 
 p.main()
 
-for i in range(6):
-    p.turn()
-    p.check_if_game_end()
-    p.computer_turn()
-    p.check_if_game_end()
+while True:
+    if p.check_if_game_end() == "game-over":
+        break
+    else:
+        p.turn()
+        p.check_if_game_end()
+        p.computer_turn()
+        p.check_if_game_end()

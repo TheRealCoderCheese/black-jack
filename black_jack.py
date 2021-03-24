@@ -3,9 +3,7 @@ import random
 listOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 
-score = 0
-
-computer_score = 0
+score, computer_score = 0, 0
 
 username = input("enter in your username: ")
 
@@ -55,20 +53,16 @@ class Player:
         if self.score == 21 and computer_score < 21:
             print(f"{self.username} wins")
             return "game-over"
-        elif self.score == 21 and self.computer_score > 21:
-            print(f"{self.username} wins")
-            return "game over"
-        elif self.score > 21:
-            print("the computer won")
-            return "game-over"
         elif self.computer_score == 21 and self.score < 21:
             print("the computer won")
+            print(f"this is the computers score: {self.computer_score}")
             return "game-over"
-        elif self.turns == 5:
+        elif self.turns == 5 and self.score <21 and self.computer_score != 21 :
             print(f"{self.username} wins")
             return "game-over"
-        elif self.computer_move == 5:
+        elif self.computer_move == 5 and self.computer_score <21 and self.score != 21:
             print("the computer won")
+            print(f"this is the computers score: {self.computer_score}")
             return "game-over"
 
 

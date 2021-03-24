@@ -1,4 +1,4 @@
 # black-jack
 Made by me 
 
-working on a ai for the game c:
+working on bots and local-multiplayer for the game c:

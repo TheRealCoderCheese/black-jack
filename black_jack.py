@@ -1,3 +1,4 @@
+#need to finsh check_if_game_end function
 import random
 
 listOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -57,14 +58,20 @@ class Player:
             print("the computer won")
             print(f"this is the computers score: {self.computer_score}")
             return "game-over"
-        elif self.turns == 5 and self.score <21 and self.computer_score != 21 :
+        elif self.turns == 5 and self.score < 21 and self.computer_score != 21:
             print(f"{self.username} wins")
             return "game-over"
-        elif self.computer_move == 5 and self.computer_score <21 and self.score != 21:
+        elif self.computer_move == 5 and self.computer_score < 21 and self.score != 21:
             print("the computer won")
             print(f"this is the computers score: {self.computer_score}")
             return "game-over"
-
+        elif self.score > 21 and self.computer_score <= 21:
+            print("the computer won")
+            print(f"this is the computers score: {self.computer_score}")
+            return "game-over"
+        elif self.computer_score > 21 and self.score <= 21:
+            print(f"{self.username} wins")
+            return "game-over"
 
 p = Player(score, computer_score, username, turn, computer_move)
 

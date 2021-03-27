@@ -1,4 +1,3 @@
-#need to finsh check_if_game_end function
 import random
 
 listOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -46,7 +45,10 @@ class Player:
         elif self.computer_score == 20:
             self.computer_score += 0
             self.computer_move += 1
-        elif self.computer_score < 15 and score > 15:
+        elif self.computer_score < 15 and self.score > 15:
+            self.computer_score += random.choice(listOfNumbers)
+            self.computer_move += 1
+        else:
             self.computer_score += random.choice(listOfNumbers)
             self.computer_move += 1
 
